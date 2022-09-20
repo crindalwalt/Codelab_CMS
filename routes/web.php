@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,10 @@ Route::get('/', function () {
     return view('templete.index');
 });
 Route::prefix('dashboard')->middleware('auth')->group(function(){
-    Route::get('visitor',function()
-    {
-        return view('admin.visitor.index');
-    });
+    Route::resource('visitor',VisitorController::class);
+    Route::resource('student',StudentController::class);
+    Route::resource('dues',DueController::class);
+
 });
 
 Route::get('/dashboard', function () {
