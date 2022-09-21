@@ -1,7 +1,6 @@
-@php
-extract($data);
-//dd($data);
-@endphp
+{{-- @php --}}
+    {{-- // extract($data); --}}
+{{-- @endphp --}}
 @extends('layouts.admin')
 @section('content')
     <main class="h-full overflow-y-auto">
