@@ -16,7 +16,7 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        $visitor = User::all();
+        $visitor = User::where('role',2)->get();
         return view('admin.visitor.index',[
             'visitors'=>$visitor
         ]);

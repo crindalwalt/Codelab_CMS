@@ -251,7 +251,10 @@
 {{--                                                10x Developer--}}
 {{--                                            </p>--}}
                                             <p class="font-semibold">{{$visitor->name}}</p>
-                                            <p class="text-xs text-gray-600 dark:text-gray-400">{{$visitor->role}}
+                                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                                                @if($visitor->role ==2)
+                                                Visitor
+                                                @endif
                                             </p>
                                         </div>
                                     </div>
