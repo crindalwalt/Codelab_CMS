@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Visitor;
 use App\Http\Requests\StoreVisitorRequest;
 use App\Http\Requests\UpdateVisitorRequest;
+use App\Models\User;
 
 class VisitorController extends Controller
 {
@@ -15,7 +16,10 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        return view('admin.visitor.index');
+        $visitor = User::all();
+        return view('admin.visitor.index',[
+            'visitors'=>$visitor
+        ]);
     }
 
     /**

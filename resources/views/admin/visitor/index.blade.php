@@ -292,9 +292,9 @@
                                             name="role" id="role"
                                     >
                                         <option value="" disabled>Select Roles</option>
-                                        @foreach($roles as $role)
+                                        {{-- @foreach($roles as $role)
                                             <option value="{{$role->value}}" {{($visitor->role == $role->value) ? 'selected' : '' }}>{{$role->name}}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                 </td>
 
