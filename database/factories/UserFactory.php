@@ -2,11 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Enum\UserRoles;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory<User>
  */
 class UserFactory extends Factory
 {
@@ -42,6 +44,18 @@ class UserFactory extends Factory
 
 
             'email_verified_at' => now(),
+            'cnic' => 'xxxxx-xxxxxxx-x',
+            'father_name' => $this->faker->name,
+            'father_phone' => $this->faker->phoneNumber,
+            'phone' => $this->faker->phoneNumber,
+            'gender' => 'Male',
+            'interest' => $this->faker->words,
+            'education' => $this->faker->name,
+            'institute' => $this->faker->sentence,
+            'marital_status' => $this->faker->name,
+            'address' => $this->faker->name,
+            'age' => "19",
+            'role' => UserRoles::VISITOR,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
@@ -54,7 +68,7 @@ class UserFactory extends Factory
      */
     public function unverified()
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }
