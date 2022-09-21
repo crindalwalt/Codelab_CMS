@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Visitor;
 use App\Http\Requests\StoreVisitorRequest;
 use App\Http\Requests\UpdateVisitorRequest;
+use App\Models\User;
 
 class VisitorController extends Controller
 {
@@ -16,8 +17,10 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        $data['visitors'] = User::get();
-        return view('admin.visitor.index')->with('data',$data);
+        $visitor = User::where('role',2)->get();
+        return view('admin.visitor.index',[
+            'visitors'=>$visitor
+        ]);
     }
 
     /**
