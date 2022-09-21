@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Visitor;
 use App\Http\Requests\StoreVisitorRequest;
 use App\Http\Requests\UpdateVisitorRequest;
-use App\Models\User;
 
 class VisitorController extends Controller
 {
