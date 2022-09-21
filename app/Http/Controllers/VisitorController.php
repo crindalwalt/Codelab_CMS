@@ -40,7 +40,7 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

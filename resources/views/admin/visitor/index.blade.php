@@ -34,10 +34,11 @@
                     </div>
                     <div>
                         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Total clients
+                            Total Visitor
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            6389
+                           500
+                        
                         </p>
                     </div>
                 </div>
@@ -102,7 +103,8 @@
                 </h4>
 
                 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                    <form action="/dashboard/visitor" method="POST">
+                    <form action="{{ route('visitor.store') }}" method="POST">
+                        @csrf
 
                         <div class="flex align-center">
                             <!-- Full Name -->
@@ -284,7 +286,7 @@
                                     {{$visitor->education}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{$visitor->institute}}
+                                    {{$visitor->institude}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     {{$visitor->marital_status}}
