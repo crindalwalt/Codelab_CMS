@@ -40,7 +40,38 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
-        dd($request->all());
+    //dd($request->all());
+        $validated = $request->validate([
+            'name'=>'required|string',
+            'phone'=>'required|string',
+            'father_name'=>'required|string',
+            'father_phone'=>'required|string',
+            'interest'=>'required',
+            'cnic'=>'digits:13',
+            'gender'=>'required',
+            'email'=>'required|email',
+            'institude'=>'required',
+            'city'=>'required',
+            'education'=>'required'
+
+        ]);
+        return "form is validated";
+//        $submitData = new User();
+//        $submitData->name = $request->name;
+//        $submitData->phone = $request->phone;
+//        $submitData->father_name = $request->father_name;
+//        $submitData->father_phone = $request->father_phone;
+//        $submitData->interest = $request->interest;
+//        $submitData->cnic = $request->cnic;
+//        $submitData->gender = $request->gender;
+//        $submitData->email = $request->email;
+//        $submitData->institude = $request->institude;
+//        $submitData->city = $request->city;
+//        $submitData->education = $request->education;
+//        $submitData->save();
+//        return redirect('/');
+
+
     }
 
     /**

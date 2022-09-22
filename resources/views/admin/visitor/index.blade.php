@@ -25,7 +25,7 @@
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <div class="p-3 mr-4 ml-2 mt-2 mb-2 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                         <x-dashboard.svg-icon>
                             <path
                                 d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
@@ -38,13 +38,13 @@
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                            500
-                        
+
                         </p>
                     </div>
                 </div>
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+                    <div class="p-3 mr-4 ml-2 mt-2 mb-2 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                         <x-dashboard.svg-icon>
                             <path fill-rule="evenodd"
                                 d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
@@ -62,7 +62,7 @@
                 </div>
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+                    <div class="p-3 mr-4 ml-2 mt-2 mb-2 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
                         <x-dashboard.svg-icon>
                             <path
                                 d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
@@ -80,7 +80,7 @@
                 </div>
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+                    <div class="p-3 mr-4 ml-2 mt-2 mb-2 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                         <x-dashboard.svg-icon>
                             <path fill-rule="evenodd"
                                 d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
@@ -106,71 +106,173 @@
                     <form action="{{ route('visitor.store') }}" method="POST">
                         @csrf
 
-                        <div class="flex align-center">
+                        <div class="flex align-center justify-start flex-wrap">
                             <!-- Full Name -->
-                            <label class="block text-sm mr-4">
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
                                 <span class="text-gray-700 dark:text-gray-400">
                                     Full Name
                                 </span>
                                 <input
                                     class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
-                                    placeholder="Shahzad Farooq" name="name" />
+                                    placeholder="Johny Depp" name="name" />
+                                @error('name')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
                             </label>
-                            <label class="block text-sm mr-4">
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
                                 <span class="text-gray-700 dark:text-gray-400">
                                     Phone no.
                                 </span>
                                 <input
                                     class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
                                     placeholder="03123456789" name="phone" />
+                                @error('phone')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
                             </label>
-                            <label class="block text-sm">
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Father Name
+                                </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
+                                    placeholder="..." name="father_name" />
+                                @error('father_name')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Father Phone
+                                </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
+                                    placeholder="03111111111" name="father_phone" />
+                                @error('father_phone')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
+
+                            {{--Second row maybe--}}
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
                                 <span class="text-gray-700 dark:text-gray-400">
                                     Interest
                                 </span>
                                 <select name="interest"
-                                    class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                        class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
 
-                                    <option value="">Website Design</option>
-                                    <option value="">Website Development</option>
-                                    <option value="">Android Development</option>
-                                    <option value="">Graphic Design</option>
+                                    <option value="WebDesign">Website Design</option>
+                                    <option value="WebDevelopment">Website Development</option>
+                                    <option value="AndroidDevelopment">Android Development</option>
+                                    <option value="GraphicDesign">Graphic Design</option>
                                 </select>
+                                @error('interest')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
+
+                            </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    CNIC
+                                </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
+                                    placeholder="xxxxx-xxxxxxx-x" name="cnic" />
+                                @error('cnic')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Gender
+                                </span>
+                                <select name="gender"
+                                        class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+
+
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="rather_not_to_say">Nai Btana</option>
+
+                                </select>
+                                @error('gender')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+
+                            </label>
+{{--                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">--}}
+{{--                                <span class="text-gray-700 dark:text-gray-400">--}}
+{{--                                    Education--}}
+{{--                                </span>--}}
+{{--                                <select name="education"--}}
+{{--                                        class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">--}}
+
+{{--                                    <option value="">Matric</option>--}}
+{{--                                    <option value="">Intermediate</option>--}}
+{{--                                    <option value="">Graduate</option>--}}
+{{--                                    <option value="">Not Studing</option>--}}
+{{--                                </select>--}}
+
+
+{{--                            </label>--}}
+                            <!-- Email input -->
+                            <label class="block  text-sm mr-4 ml-2 mt-2 mb-2">
+                            <span class="text-gray-700 dark:text-gray-400">
+                                Email Address
+                            </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-green-400 focus:outline-none focus:shadow-outline-blue form-input"
+                                    placeholder="Jane Doe" type="email" name="email" />
+                                @error('email')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
+                            <!-- Institute input -->
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                            <span class="text-gray-700 dark:text-gray-400">
+                                Institute
+                            </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-green-400 focus:outline-none focus:shadow-outline-blue form-input"
+                                    placeholder="IUB..." type="text" name="institude" />
+                                @error('institude')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
                             </label>
                         </div>
 
-                        <!-- Email input -->
-                        <label class="block mt-4 text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">
-                                Email Address
-                            </span>
-                            <input
-                                class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-green-400 focus:outline-none focus:shadow-outline-blue form-input"
-                                placeholder="Jane Doe" type="email" name="email" />
 
-                        </label>
 
-                        <div class="flex align-center mt-4">
+                        <div class="flex align-center ">
                             <!-- City Name -->
-                            <label class="block text-sm mr-4">
+                            <label class="block text-sm mr-4 ml-2 mt-2 ">
                                 <span class="text-gray-700 dark:text-gray-400">
                                     City
                                 </span>
                                 <input
                                     class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
                                     placeholder="Bahawalpur" name="city" />
+                                @error('city')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
 
                             </label>
 
-                            <label class="block text-sm">
+                            <label class="block text-sm mr-4 ml-2 mt-2 ">
                                 <span class="text-gray-700 dark:text-gray-400">
-                                    Status
+                                    Education
                                 </span>
-                                <select name="status"
+                                <select name="education"
                                     class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
 
                                     <option value="Matric">Matric</option>
@@ -178,6 +280,9 @@
                                     <option value="Bacholar">Bacholar</option>
                                     <option value="Graduate">Graduate</option>
                                 </select>
+                                @error('education')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
 
                             </label>
@@ -227,31 +332,28 @@
                                 <th class="px-4 py-3">Education</th>
                                 <th class="px-4 py-3">Institute</th>
                                 <th class="px-4 py-3">Marital Status</th>
-                                <th class="px-4 py-3">Role</th>
+{{--                                <th class="px-4 py-3">Role</th>--}}
                                 <th class="px-4 py-3">Actions</th>
 
 
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            {{-- @foreach ($visitors as $visitor) --}}
-                            {{-- <tr class="text-gray-700 dark:text-gray-400"> --}}
-                            {{-- <td class="px-4 py-3"> --}}
-                            {{-- <div class="flex items-center text-sm"> --}}
-                            {{-- <!-- Avatar with inset shadow --> --}}
-                            {{-- <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block"> --}}
-                            {{-- <img class="object-cover w-full h-full rounded-full" --}}
-                            {{-- src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" --}}
-                            {{-- src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6" --}}
-                            {{-- alt="" loading="lazy" /> --}}
-                            {{-- <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"> --}}
-                            {{-- </div> --}}
-                            {{-- </div> --}}
-                            {{-- <div> --}}
-                            {{-- <p class="font-semibold">Hans Burger</p> --}}
-                            {{-- <p class="text-xs text-gray-600 dark:text-gray-400"> --}}
-                            {{-- 10x Developer --}}
-                            {{-- </p> --}}
+                            @foreach ($visitors as $visitor)
+                            <tr class="text-gray-700 dark:text-gray-400">
+                            <td class="px-4 py-3">
+                            <div class="flex items-center text-sm">
+                           <!-- Avatar with inset shadow -->
+                            <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                             <img class="object-cover w-full h-full rounded-full"
+                             src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                            alt="" loading="lazy" />
+                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                            </div>
+                            </div>
+                            <div>
+
                             <p class="font-semibold">{{ $visitor->name }}</p>
                             <p class="text-xs text-gray-600 dark:text-gray-400">
                                 @if ($visitor->role == 2)
@@ -291,53 +393,29 @@
             <td class="px-4 py-3 text-sm">
                 {{ $visitor->marital_status }}
             </td>
-            <td class="px-4 py-3 text-sm">
-                <select
-                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                    name="role" id="role">
-                    <option value="" disabled>Select Roles</option>
-                    {{-- @foreach ($roles as $role)
-                                            <option value="{{$role->value}}" {{($visitor->role == $role->value) ? 'selected' : '' }}>{{$role->name}}</option>
-                                        @endforeach --}}
-                </select>
-            </td>
 
-            {{-- <td class="px-4 py-3 text-sm"> --}}
-            {{-- <a --}}
-            {{-- class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" --}}
-            {{-- href="forms.html" --}}
-            {{-- > --}}
-            {{-- <span class="ml-4 text-purple-600">Update</span> --}}
-            {{-- </a> --}}
-            {{-- <br> --}}
-            {{-- <br> --}}
 
-            {{-- <a --}}
-            {{-- class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200" --}}
-            {{-- href="forms.html" --}}
-            {{-- > --}}
-            {{-- <span class="ml-4 text-red-700">Delete</span> --}}
-            {{-- </a> --}}
-            {{-- </td> --}}
-            {{-- <td class="px-4 py-3 text-xs"> --}}
-            {{-- <span --}}
-            {{-- class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"> --}}
-            {{-- Approved --}}
-            {{-- $ 369.95 --}}
-            {{-- </span> --}}
-            {{-- </td> --}}
-            {{-- <td class="px-4 py-3 text-xs"> --}}
-            {{-- <span --}}
-            {{-- class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"> --}}
-            {{-- Pending --}}
-            {{-- </span> --}}
-            {{-- </td> --}}
-            {{-- <td class="px-4 py-3 text-sm"> --}}
-            {{-- 6/10/2020 --}}
-            {{-- </td> --}}
-            {{-- </tr> --}}
+             <td class="px-4 py-3 text-sm">
+             <a
+             class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+             href="forms.html"
+             >
+             <span class="ml-4 text-purple-600">Update</span>
+             </a>
+             <br>
+             <br>
 
-            {{-- @endforeach --}}
+             <a
+             class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+             href="forms.html"
+             >
+             <span class="ml-4 text-red-700">Delete</span>
+             </a>
+             </td>
+
+             </tr>
+
+            @endforeach
             </tbody>
             </table>
         </div>

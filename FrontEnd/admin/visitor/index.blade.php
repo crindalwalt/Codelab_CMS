@@ -282,7 +282,7 @@ extract($data);
                                     {{$visitor->education}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{$visitor->institute}}
+                                    {{$visitor->institude}}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     {{$visitor->marital_status}}
@@ -316,22 +316,22 @@ extract($data);
                                         <span class="ml-4 text-red-700">Delete</span>
                                     </a>
                                 </td>
-{{--                                <td class="px-4 py-3 text-xs">--}}
-{{--                                    <span--}}
-{{--                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">--}}
-{{--                                        Approved--}}
-{{--                                        $ 369.95--}}
-{{--                                    </span>--}}
-{{--                                </td>--}}
-{{--                                <td class="px-4 py-3 text-xs">--}}
-{{--                                    <span--}}
-{{--                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">--}}
-{{--                                        Pending--}}
-{{--                                    </span>--}}
-{{--                                </td>--}}
-{{--                                <td class="px-4 py-3 text-sm">--}}
-{{--                                    6/10/2020--}}
-{{--                                </td>--}}
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                        Approved
+                                        $ 369.95
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-xs">
+                                    <span
+                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    6/10/2020
+                                </td>
                             </tr>
 
                         @endforeach
