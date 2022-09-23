@@ -16,7 +16,7 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        $visitor = Visitor::all();
+        $visitor = User::where('role',3)->latest()->get();
         return view('admin.visitor.index',[
             'visitors'=>$visitor
         ]);
@@ -55,21 +55,25 @@ class VisitorController extends Controller
             'education'=>'required'
 
         ]);
-        return "form is validated";
-//        $submitData = new User();
-//        $submitData->name = $request->name;
-//        $submitData->phone = $request->phone;
-//        $submitData->father_name = $request->father_name;
-//        $submitData->father_phone = $request->father_phone;
-//        $submitData->interest = $request->interest;
-//        $submitData->cnic = $request->cnic;
-//        $submitData->gender = $request->gender;
-//        $submitData->email = $request->email;
-//        $submitData->institude = $request->institude;
-//        $submitData->city = $request->city;
-//        $submitData->education = $request->education;
-//        $submitData->save();
-//        return redirect('/');
+//        return "form is validated";
+        $submitData = new User();
+        $submitData->name = $request->name;
+        $submitData->phone = $request->phone;
+        $submitData->father_name = $request->father_name;
+        $submitData->father_phone = $request->father_phone;
+        $submitData->interest = $request->interest;
+        $submitData->cnic = $request->cnic;
+        $submitData->gender = $request->gender;
+        $submitData->email = $request->email;
+        $submitData->institude = $request->institude;
+        $submitData->city = $request->city;
+        $submitData->marital_status = $request->marital_status;
+        $submitData->address = $request->address;
+        $submitData->age = $request->age;
+        $submitData->role = 3;
+        $submitData->education = $request->education;
+        $submitData->save();
+        return redirect('/dashboard/visitor');
 
 
     }

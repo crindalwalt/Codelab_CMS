@@ -23,7 +23,7 @@ class VisitorFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'father_name'=> $this->faker->name() ,
             'father_phone'=> $this->faker->phoneNumber() ,
-            'cnic'=> 'xxxxx-xxxxxxx-x',
+            'cnic'=> 'xxxxx-xxxxxxxx-x',
             'phone'=> $this->faker->phoneNumber() ,
             'gender'=> 'male' ,
             'interest'=>"Web Development",
@@ -31,6 +31,7 @@ class VisitorFactory extends Factory
             'institude'=> 'Islamia University',
             'marital_status'=> "hoping...",
             'age'=> '18',
+            'city'=>$this->faker->city,
 
             'address' => $this->faker->name,
 

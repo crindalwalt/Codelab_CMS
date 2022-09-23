@@ -22,7 +22,19 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'father_name'=> $this->faker->name() ,
+            'father_phone'=> $this->faker->phoneNumber() ,
+            'cnic'=> 'xxxxx-xxxxxxxx-x',
+            'phone'=> $this->faker->phoneNumber() ,
+            'gender'=> 'male' ,
+            'interest'=>"Web Development",
+            'education'=> 'matric pass',
+            'institude'=> 'Islamia University',
+            'marital_status'=> "hoping...",
+            'age'=> '18',
+            'role'=>3,
+            'city'=>$this->faker->city,
+            'address' => $this->faker->address,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];

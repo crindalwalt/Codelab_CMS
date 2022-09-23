@@ -38,7 +38,7 @@
                             Total Visitor
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            500
+                            {{$visitors->count()}}
 
                         </p>
                     </div>
@@ -160,6 +160,35 @@
                                 @enderror
 
                             </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Age
+                                </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
+                                    placeholder="03111111111" name="age" />
+                                @error('age')
+                                    <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Marital Status
+                                </span>
+                                <select name="marital_status"
+                                        class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+
+                                    <option value="married">Married</option>
+                                    <option value="widowed">Widowed</option>
+                                    <option value="bacholar">Bachelor</option>
+                                    <option value="divorcee">Divorcee</option>
+                                </select>
+                                @error('marital_status')
+                                    <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
+
+                            </label>
 
                             {{-- Second row maybe --}}
                             <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
@@ -186,7 +215,7 @@
                                 </span>
                                 <input
                                     class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
-                                    placeholder="xxxxx-xxxxxxx-x" name="cnic" />
+                                    placeholder="xxxxx-xxxxxxx-x" type="number" name="cnic" />
                                 @error('cnic')
                                     <div class="text-red-600 p-2">{{ $message }}</div>
                                 @enderror
@@ -209,6 +238,18 @@
                                     <div class="text-red-600 p-2">{{ $message }}</div>
                                 @enderror
 
+
+                            </label>
+                            <label class="block text-sm mr-4 ml-2 mt-2 mb-2">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Address
+                                </span>
+                                <input
+                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
+                                    placeholder="xxxxx-xxxxxxx-x" name="address" />
+                                @error('address')
+                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                @enderror
 
                             </label>
                             {{-- <label class="block text-sm mr-4 ml-2 mt-2 mb-2"> --}}
@@ -293,7 +334,7 @@
                         </div>
                         <div class="py-4">
                             <button type="submit"
-                                class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                class="px-5 py-3 ml-2 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                                 Add Visitor
                             </button>
                         </div>
@@ -335,6 +376,7 @@
                                 <th class="px-4 py-3">Interest</th>
                                 <th class="px-4 py-3">Education</th>
                                 <th class="px-4 py-3">Institute</th>
+                                <th class="px-4 py-3">Age</th>
                                 <th class="px-4 py-3">Marital Status</th>
                                 {{-- <th class="px-4 py-3">Role</th> --}}
                                 <th class="px-4 py-3">Actions</th>
@@ -361,9 +403,9 @@
 
                                                 <p class="font-semibold">{{ $visitor->name }}</p>
                                                 <p class="text-xs text-gray-600 dark:text-gray-400">
-
+                                                    @if($visitor->role == 3)
                                                         Visitor
-
+                                                    @endif
                                                 </p>
                                             </div>
                                         </div>
@@ -393,7 +435,10 @@
                                         {{ $visitor->education }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        {{ $visitor->institute }}
+                                        {{ $visitor->institude }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ $visitor->age }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
                                         {{ $visitor->marital_status }}
