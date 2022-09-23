@@ -22,40 +22,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'father_name'=> $this->faker->name() ,
-            'father_phone'=> $this->faker->phoneNumber() ,
-            'cnic'=> 'xxxxx-xxxxxxx-x' ,
-            'phone'=> $this->faker->phoneNumber() ,
-            'gender'=> 'male' ,
-            'interest'=>"Web Development",
-            'education'=> 'matric pass',
-            'institude'=> 'Islamia University',
-            'marital_status'=> "hoping...",
-            'role'=>2,
-
-
-
-
-
-
-
-
-
-
-
             'email_verified_at' => now(),
-            'cnic' => 'xxxxx-xxxxxxx-x',
-            'father_name' => $this->faker->name,
-            'father_phone' => $this->faker->phoneNumber,
-            'phone' => $this->faker->phoneNumber,
-            'gender' => 'Male',
-            'interest' => $this->faker->words,
-            'education' => $this->faker->name,
-            'institute' => $this->faker->sentence,
-            'marital_status' => $this->faker->name,
-            'address' => $this->faker->name,
-            'age' => "19",
-            'role' => UserRoles::VISITOR,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
