@@ -25,12 +25,15 @@ return new class extends Migration
             $table->string('gender');
             $table->string('interest');
             $table->string('education');
-            $table->string('institude');
+            $table->string('institute');
+            $table->string('city');
             $table->string('marital_status');
-            $table->string('address');
-            $table->string('age');
-            $table->integer('role');
-            $table->string('password')->nullable();
+
+            $table->string('role');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DueController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 

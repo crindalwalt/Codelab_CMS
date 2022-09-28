@@ -6,20 +6,19 @@ use App\Models\User;
 use App\Models\Visitor;
 use App\Http\Requests\StoreVisitorRequest;
 use App\Http\Requests\UpdateVisitorRequest;
-
 class VisitorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $visitor = User::where('role',3)->latest()->get();
-        return view('admin.visitor.index',[
-            'visitors'=>$visitor
-        ]);
+
+        $visitors = User::where('role','visitor')->get();
+        return view('admin.visitor.index')->with('visitors',$visitors);
+
     }
 
     /**
@@ -40,6 +39,7 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
+
     //dd($request->all());
         $validated = $request->validate([
             'name'=>'required|string',
@@ -97,7 +97,7 @@ class VisitorController extends Controller
      */
     public function edit(Visitor $visitor)
     {
-        //
+        return view('admin.visitor.edit');
     }
 
 
@@ -116,7 +116,23 @@ class VisitorController extends Controller
      */
     public function update(UpdateVisitorRequest $request, Visitor $visitor)
     {
-        //
+        $visitor->name = $request->name;
+        $visitor->cnic = $request->cnic;
+        $visitor->father_name = $request->father_name;
+        $visitor->father_phone = $request->father_phone;
+        $visitor->phone = $request->phone;
+        $visitor->gender = $request->gender;
+        $visitor->interest = $request->interest;
+        $visitor->education = $request->education;
+        $visitor->institute = $request->institute;
+        $visitor->city = $request->city;
+        $visitor->marital_status = $request->marital_status;
+        $visitor->role = $request->role;
+        $visitor->email = $request->email;;
+        $visitor->password = $request->password;
+        $visitor->save();
+        return redirect()->route('visitor.index')->with('success','Information has been updated.');
+
     }
 
     /**
@@ -127,7 +143,7 @@ class VisitorController extends Controller
      */
     public function destroy(Visitor $visitor)
     {
-        dd("for deleting...");
+        $visitor->delete();
 
     }
 }
