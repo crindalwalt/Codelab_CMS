@@ -1,6 +1,7 @@
-{{-- @php --}}
-    {{-- // extract($data); --}}
-{{-- @endphp --}}
+{{-- @php--}}
+{{--      extract($data);--}}
+{{-- @endphp--}}
+@php use App\Enum\UserRoles; @endphp
 @extends('layouts.admin')
 @section('content')
     <main class="h-full overflow-y-auto">
@@ -25,7 +26,8 @@
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                    <div
+                        class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
                         <x-dashboard.svg-icon>
                             <path
                                 d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
@@ -43,11 +45,12 @@
                 </div>
                 <!-- Card -->
                 <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+                    <div
+                        class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
                         <x-dashboard.svg-icon>
                             <path fill-rule="evenodd"
-                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd"></path>
+                                  d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                  clip-rule="evenodd"></path>
                         </x-dashboard.svg-icon>
                     </div>
                     <div>
@@ -82,8 +85,8 @@
                     <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
                         <x-dashboard.svg-icon>
                             <path fill-rule="evenodd"
-                                d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                                clip-rule="evenodd"></path>
+                                  d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
+                                  clip-rule="evenodd"></path>
                         </x-dashboard.svg-icon>
                     </div>
                     <div>
@@ -101,106 +104,181 @@
                     Add New Visitor
                 </h4>
 
-                <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                    <form action="/dashboard/visitor" method="POST">
+                <div class="container px-6 mx-auto grid">
 
-                        <div class="flex align-center">
-                            <!-- Full Name -->
-                            <label class="block text-sm mr-4">
+
+                    <div class="">
+
+                        <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+                            <form action="{{route('visitor.store')}}" method="POST">
+                                @csrf
+                                <div class="align-center">
+
+                                    <!-- Full Name -->
+                                    <x-visitor.input-label class="" for="name" :value="__('Name')">
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your name" name="name" type="text" id="name"
+                                            :value="old('name')"
+                                            required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- CNIC -->
+
+                                    <x-visitor.input-label class="" for="cnic" :value="__('Cnic')">
+
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your cnic" name="cnic" type="text" id="cnic"
+                                            :value="old('cnic')"
+                                            required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+
+                                    <!-- Father Name -->
+                                    <x-visitor.input-label class="" for="father_name" :value="__('Father Name')">
+
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your father's name" name="father_name" type="text"
+                                            id="father_name" :value="old('father_name')" required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+
+                                    <!-- Father Name -->
+                                    <x-visitor.input-label class="" for="father_phone" :value="__('Father Phone')">
+
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your father's phone" name="father_phone" type="text"
+                                            id="father_phone" :value="old('father_phone')" required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+
+                                    <!-- Phone No. -->
+                                    <x-visitor.input-label class="" for="phone" :value="__('Phone')">
+
                                 <span class="text-gray-700 dark:text-gray-400">
-                                    Full Name
+                                    Phone No.
                                 </span>
-                                <input
-                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
-                                    placeholder="Shahzad Farooq" name="name" />
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your phone no." name="phone" type="text" id="phone"
+                                            :value="old('phone')" required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Gender -->
+                                    <x-visitor.input-label for="gender" :value="__('Gender')">
+                                        <select name="gender" id="gender"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Interest -->
+                                    <x-visitor.input-label for="interest" :value="__('Interest')">
 
-                            </label>
-                            <label class="block text-sm mr-4">
-                                <span class="text-gray-700 dark:text-gray-400">
-                                    Phone no.
-                                </span>
-                                <input
-                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
-                                    placeholder="03123456789" name="phone" />
+                                        <select name="interest" id="interest"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Interest</option>
+                                            <option value="web">Web Development</option>
+                                            <option value="android">Android Development</option>
+                                            <option value="graphic">Graphic Designing</option>
 
-                            </label>
-                            <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">
-                                    Interest
-                                </span>
-                                <select name="interest"
-                                    class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                        </select>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Education -->
+                                    <x-visitor.input-label for="education" :value="__('Education')">
 
-                                    <option value="">Website Design</option>
-                                    <option value="">Website Development</option>
-                                    <option value="">Android Development</option>
-                                    <option value="">Graphic Design</option>
-                                </select>
+                                        <select name="education" id="education"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Education</option>
+                                            <option value="matric">Matriculation</option>
+                                            <option value="inter">Intermediate</option>
+                                            <option value="graduate">Graduation</option>
+                                            <option value="masters">Masters</option>
 
+                                        </select>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Institute -->
+                                    <x-visitor.input-label class="mt-4" for="institute" :value="__('Institute')">
 
-                            </label>
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your institute" name="institute" type="text"
+                                            id="institute"
+                                            :value="old('institute')" required autofocus/>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Marital Status -->
+                                    <x-visitor.input-label for="marital_status" :value="__('Marital Status')">
+
+                                        <select name="marital_status" id="marital_status"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Marital Status</option>
+                                            <option value="single">Single</option>
+                                            <option value="married">Married</option>
+                                            <option value="divorced">Divorced</option>
+                                        </select>
+                                    </x-visitor.input-label>
+                                    <br>
+                                    <!-- Role -->
+                                    <x-visitor.input-label for="role" :value="__('Role')">
+
+                                        <select name="role" id="role"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Role</option>
+                                            <option value="{{UserRoles::ADMIN->value}}">Admin</option>
+                                            <option value="{{UserRoles::VISITOR->value}}">Visitor</option>
+                                            <option value="{{UserRoles::STAFF->value}}">Student</option>
+                                            <option value="{{UserRoles::STUDENT->value}}">Staff</option>
+                                        </select>
+                                    </x-visitor.input-label>
+                                </div>
+                                <!-- Email input -->
+                                <x-visitor.input-label class="mt-4" for="email" :value="__('Email')">
+
+                                    <x-visitor.text-input
+                                        class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                        placeholder="Enter your email address" type="email" name="email" id="email"
+                                        :value="old('email')" required autofocus/>
+
+                                </x-visitor.input-label>
+
+                                <div class="align-center mt-4">
+                                    <!-- City Name -->
+                                    <x-visitor.input-label class="" for="city" :value="__('City')">
+
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your city" name="city" id="city" :value="old('city')"
+                                            required autofocus/>
+
+                                    </x-visitor.input-label>
+                                    <x-visitor.input-label class="" for="password" :value="__('Password')">
+
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your password" name="password" type="password" id="password" :value="old('password')"
+                                            required autofocus/>
+
+                                    </x-visitor.input-label>
+
+                                </div>
+                                <div class="py-4">
+                                    <button type="submit"
+                                            class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                                        Add User
+                                    </button>
+                                </div>
+                            </form>
+
                         </div>
-
-                        <!-- Email input -->
-                        <label class="block mt-4 text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">
-                                Email Address
-                            </span>
-                            <input
-                                class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-green-400 focus:outline-none focus:shadow-outline-blue form-input"
-                                placeholder="Jane Doe" type="email" name="email" />
-
-                        </label>
-
-                        <div class="flex align-center mt-4">
-                            <!-- City Name -->
-                            <label class="block text-sm mr-4">
-                                <span class="text-gray-700 dark:text-gray-400">
-                                    City
-                                </span>
-                                <input
-                                    class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
-                                    placeholder="Bahawalpur" name="city" />
-
-                            </label>
-
-                            <label class="block text-sm">
-                                <span class="text-gray-700 dark:text-gray-400">
-                                    Status
-                                </span>
-                                <select name="status"
-                                    class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
-
-                                    <option value="Matric">Matric</option>
-                                    <option value="FSc">FSc</option>
-                                    <option value="Bacholar">Bacholar</option>
-                                    <option value="Graduate">Graduate</option>
-                                </select>
-
-
-                            </label>
-                        </div>
-                        <div class="py-4">
-                            <button type="submit"
-                                class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                Add Visitor
-                            </button>
-                        </div>
-                    </form>
-
-                    <!-- Helper text -->
-                    {{-- <label class="block mt-4 text-sm">
-                        <span class="text-gray-700 dark:text-gray-400">
-                            Helper text
-                        </span>
-                        <input
-                            class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                            placeholder="Jane Doe" />
-                        <span class="text-xs text-gray-600 dark:text-gray-400">
-                            Your password must be at least 6 characters long.
-                        </span>
-                    </label> --}}
-                    <!-- Divs are used just to display the examples. Use only the button. -->
+                    </div>
 
                 </div>
             </div>
@@ -212,24 +290,24 @@
                 <div class="w-full overflow-x-auto">
                     <table class="w-full whitespace-no-wrap">
                         <thead>
-                            <tr
-                                class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                                <th class="px-4 py-3">Name</th>
-                                <th class="px-4 py-3">Father's Name</th>
-                                <th class="px-4 py-3">Father's Phone No.</th>
-                                <th class="px-4 py-3">CNIC</th>
-                                <th class="px-4 py-3">Email</th>
-                                <th class="px-4 py-3">Phone No.</th>
-                                <th class="px-4 py-3">Gender</th>
-                                <th class="px-4 py-3">Interest</th>
-                                <th class="px-4 py-3">Education</th>
-                                <th class="px-4 py-3">Institute</th>
-                                <th class="px-4 py-3">Marital Status</th>
-                                <th class="px-4 py-3">Role</th>
-                                <th class="px-4 py-3">Actions</th>
+                        <tr
+                            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                            <th class="px-4 py-3">Name</th>
+                            <th class="px-4 py-3">Father's Name</th>
+                            <th class="px-4 py-3">Father's Phone No.</th>
+                            <th class="px-4 py-3">CNIC</th>
+                            <th class="px-4 py-3">Email</th>
+                            <th class="px-4 py-3">Phone No.</th>
+                            <th class="px-4 py-3">Gender</th>
+                            <th class="px-4 py-3">Interest</th>
+                            <th class="px-4 py-3">Education</th>
+                            <th class="px-4 py-3">Institute</th>
+                            <th class="px-4 py-3">Marital Status</th>
+                            <th class="px-4 py-3">Role</th>
+                            <th class="px-4 py-3">Actions</th>
 
 
-                            </tr>
+                        </tr>
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                         @foreach($visitors as $visitor)
@@ -239,21 +317,21 @@
                                         <!-- Avatar with inset shadow -->
                                         <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                             <img class="object-cover w-full h-full rounded-full"
-                                                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
-                                                alt="" loading="lazy" />
+                                                 src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                                                 alt="" loading="lazy"/>
                                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
                                             </div>
                                         </div>
                                         <div>
-{{--                                            <p class="font-semibold">Hans Burger</p>--}}
-{{--                                            <p class="text-xs text-gray-600 dark:text-gray-400">--}}
-{{--                                                10x Developer--}}
-{{--                                            </p>--}}
+                                            {{--                                            <p class="font-semibold">Hans Burger</p>--}}
+                                            {{--                                            <p class="text-xs text-gray-600 dark:text-gray-400">--}}
+                                            {{--                                                10x Developer--}}
+                                            {{--                                            </p>--}}
                                             <p class="font-semibold">{{$visitor->name}}</p>
                                             <p class="text-xs text-gray-600 dark:text-gray-400">
                                                 @if($visitor->role ==2)
-                                                Visitor
+                                                    Visitor
                                                 @endif
                                             </p>
                                         </div>
@@ -291,8 +369,8 @@
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     <select
-                                            class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                            name="role" id="role"
+                                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                        name="role" id="role"
                                     >
                                         <option value="" disabled>Select Roles</option>
                                         {{-- @foreach($roles as $role)
@@ -303,8 +381,8 @@
 
                                 <td class="px-4 py-3 text-sm">
                                     <a
-                                            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                                            href="forms.html"
+                                        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                                        href="forms.html"
                                     >
                                         <span class="ml-4 text-purple-600">Update</span>
                                     </a>
@@ -312,28 +390,28 @@
                                     <br>
 
                                     <a
-                                            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                                            href="forms.html"
+                                        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                                        href="forms.html"
                                     >
                                         <span class="ml-4 text-red-700">Delete</span>
                                     </a>
                                 </td>
-{{--                                <td class="px-4 py-3 text-xs">--}}
-{{--                                    <span--}}
-{{--                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">--}}
-{{--                                        Approved--}}
-{{--                                        $ 369.95--}}
-{{--                                    </span>--}}
-{{--                                </td>--}}
-{{--                                <td class="px-4 py-3 text-xs">--}}
-{{--                                    <span--}}
-{{--                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">--}}
-{{--                                        Pending--}}
-{{--                                    </span>--}}
-{{--                                </td>--}}
-{{--                                <td class="px-4 py-3 text-sm">--}}
-{{--                                    6/10/2020--}}
-{{--                                </td>--}}
+                                {{--                                <td class="px-4 py-3 text-xs">--}}
+                                {{--                                    <span--}}
+                                {{--                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">--}}
+                                {{--                                        Approved--}}
+                                {{--                                        $ 369.95--}}
+                                {{--                                    </span>--}}
+                                {{--                                </td>--}}
+                                {{--                                <td class="px-4 py-3 text-xs">--}}
+                                {{--                                    <span--}}
+                                {{--                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">--}}
+                                {{--                                        Pending--}}
+                                {{--                                    </span>--}}
+                                {{--                                </td>--}}
+                                {{--                                <td class="px-4 py-3 text-sm">--}}
+                                {{--                                    6/10/2020--}}
+                                {{--                                </td>--}}
                             </tr>
 
                         @endforeach

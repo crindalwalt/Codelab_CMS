@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('gender');
             $table->string('interest');
             $table->string('education');
-            $table->string('institude');
+            $table->string('institute');
+            $table->string('city');
             $table->string('marital_status');
             $table->string('role');
             $table->string('email')->unique();
