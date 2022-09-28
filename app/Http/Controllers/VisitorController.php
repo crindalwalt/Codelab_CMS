@@ -15,8 +15,10 @@ class VisitorController extends Controller
      */
     public function index()
     {
+
         $visitors = User::where('role','visitor')->get();
         return view('admin.visitor.index')->with('visitors',$visitors);
+
     }
 
     /**
@@ -37,10 +39,43 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
-//        dd($request->all());
-        User::create($request->all());
 
-        return redirect()->route('visitor.index')->with('success','Information has been created.');
+    //dd($request->all());
+        $validated = $request->validate([
+            'name'=>'required|string',
+            'phone'=>'required|string',
+            'father_name'=>'required|string',
+            'father_phone'=>'required|string',
+            'interest'=>'required',
+            'cnic'=>'digits:13',
+            'gender'=>'required',
+            'email'=>'required|email',
+            'institude'=>'required',
+            'city'=>'required',
+            'education'=>'required'
+
+        ]);
+//        return "form is validated";
+        $submitData = new User();
+        $submitData->name = $request->name;
+        $submitData->phone = $request->phone;
+        $submitData->father_name = $request->father_name;
+        $submitData->father_phone = $request->father_phone;
+        $submitData->interest = $request->interest;
+        $submitData->cnic = $request->cnic;
+        $submitData->gender = $request->gender;
+        $submitData->email = $request->email;
+        $submitData->institude = $request->institude;
+        $submitData->city = $request->city;
+        $submitData->marital_status = $request->marital_status;
+        $submitData->address = $request->address;
+        $submitData->age = $request->age;
+        $submitData->role = 3;
+        $submitData->education = $request->education;
+        $submitData->save();
+        return redirect('/dashboard/visitor');
+
+
     }
 
     /**
@@ -63,6 +98,13 @@ class VisitorController extends Controller
     public function edit(Visitor $visitor)
     {
         return view('admin.visitor.edit');
+    }
+
+
+
+
+    public function delete(Visitor $visitor){
+        return "ho gya smjho delete";
     }
 
     /**
@@ -102,5 +144,6 @@ class VisitorController extends Controller
     public function destroy(Visitor $visitor)
     {
         $visitor->delete();
+
     }
 }

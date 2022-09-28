@@ -8,5 +8,4 @@ enum UserRoles:string
     case VISITOR = 'visitor';
     case STUDENT = 'student';
     case STAFF = 'staff';
-
 }

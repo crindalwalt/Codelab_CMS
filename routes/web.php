@@ -20,7 +20,8 @@ Route::get('/', function () {
     return view('templete.index');
 });
 Route::prefix('dashboard')->middleware('auth')->group(function(){
-    Route::resource('visitor',VisitorController::class);
+    Route::get('/dashboard/visitor/destroy/{visitor}',[VisitorController::class,'delete']);
+    Route::resource('visitor',VisitorController::class)->except(['destroy']);
     Route::resource('student',StudentController::class);
     Route::resource('dues',DueController::class);
 
