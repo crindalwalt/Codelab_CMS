@@ -38,7 +38,7 @@
                             Total Visitor
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            {{$visitors->count()}}
+                            {{ $visitors->count() }}
 
                         </p>
                     </div>
@@ -177,7 +177,7 @@
                                     Marital Status
                                 </span>
                                 <select name="marital_status"
-                                        class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                    class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
 
                                     <option value="married">Married</option>
                                     <option value="widowed">Widowed</option>
@@ -248,7 +248,7 @@
                                     class="block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input"
                                     placeholder="xxxxx-xxxxxxx-x" name="address" />
                                 @error('address')
-                                <div class="text-red-600 p-2">{{ $message }}</div>
+                                    <div class="text-red-600 p-2">{{ $message }}</div>
                                 @enderror
 
                             </label>
@@ -293,11 +293,6 @@
                                 @enderror
 
                             </label>
-                        </div>
-
-
-
-                        <div class="flex align-center ">
                             <!-- City Name -->
                             <label class="block text-sm mr-4 ml-2 mt-2 ">
                                 <span class="text-gray-700 dark:text-gray-400">
@@ -403,7 +398,7 @@
 
                                                 <p class="font-semibold">{{ $visitor->name }}</p>
                                                 <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                    @if($visitor->role == 3)
+                                                    @if ($visitor->role == 3)
                                                         Visitor
                                                     @endif
                                                 </p>
@@ -455,8 +450,14 @@
 
                                         <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                                             href="forms.html">
-                                            <span class="ml-4 text-red-700">Delete</span>
+                                            <span class="mr-4 text-red-700"><a
+                                                    href="/dashboard/visitor/destroy/{{ $visitor->id }}">Delete</a></span>
                                         </a>
+                                        {{--                                        <form action="{{ route('visitor.destroy',$visitor->id) }}" method="POST"> --}}
+                                        {{--                                            @method('Delete') --}}
+                                        {{--                                            @csrf --}}
+                                        {{--                                            <button type="submit" class="btn">Delete Text</button> --}}
+                                        {{--                                        </form> --}}
                                     </td>
 
                                 </tr>
@@ -536,50 +537,7 @@
                 </div>
             </div>
 
-            <!-- Charts -->
-            {{-- <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Charts
-            </h2>
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
-                <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        Revenue
-                    </h4>
-                    <canvas id="pie"></canvas>
-                    <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                        <!-- Chart legend -->
-                        <div class="flex items-center">
-                            <span class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
-                            <span>Shirts</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                            <span>Shoes</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                            <span>Bags</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-                    <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                        Traffic
-                    </h4>
-                    <canvas id="line"></canvas>
-                    <div class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400">
-                        <!-- Chart legend -->
-                        <div class="flex items-center">
-                            <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                            <span>Organic</span>
-                        </div>
-                        <div class="flex items-center">
-                            <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                            <span>Paid</span>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+
         </div>
     </main>
 @endsection

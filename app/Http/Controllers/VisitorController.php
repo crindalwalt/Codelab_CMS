@@ -100,6 +100,13 @@ class VisitorController extends Controller
         //
     }
 
+
+
+
+    public function delete(Visitor $visitor){
+        return "ho gya smjho delete";
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -120,6 +127,7 @@ class VisitorController extends Controller
      */
     public function destroy(Visitor $visitor)
     {
-        //
+        dd("for deleting...");
+
     }
 }
