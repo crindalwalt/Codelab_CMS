@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('education');
             $table->string('institude');
             $table->string('marital_status');
-            $table->integer('role');
+            $table->string('role');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

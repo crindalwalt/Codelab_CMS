@@ -12,14 +12,12 @@ class VisitorController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $visitor = User::where('role',2)->get();
-        return view('admin.visitor.index',[
-            'visitors'=>$visitor
-        ]);
+        $visitors = User::where('role','visitor')->get();
+        return view('admin.visitor.index')->with('visitors',$visitors);
     }
 
     /**
