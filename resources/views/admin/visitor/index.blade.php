@@ -39,7 +39,7 @@
                             Total clients
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            6389
+                            {{ $visitors->count() }}
                         </p>
                     </div>
                 </div>
@@ -105,19 +105,15 @@
                 </h4>
 
                 <div class="container px-6 mx-auto grid">
-                    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                        Edit Information
-                    </h2>
 
                     <div class="">
-                        <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-                            Update Information
-                        </h4>
 
-                        <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                            <form action="" method="POST">
 
-                                <div class="align-center">
+                        <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
+                            <form action="{{ route('visitor.store') }}" method="POST">
+                                @csrf
+
+                                <div class="flex align-center flex-wrap  p-4">
 
                                     <!-- Full Name -->
                                     <x-visitor.input-label class="" for="name" :value="__('Name')">
@@ -126,6 +122,9 @@
                                             placeholder="Enter your name" name="name" type="text" id="name"
                                             :value="old('name')"
                                             required autofocus/>
+                                        @error('name')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- CNIC -->
@@ -137,6 +136,9 @@
                                             placeholder="Enter your cnic" name="cnic" type="text" id="cnic"
                                             :value="old('cnic')"
                                             required autofocus/>
+                                        @error('cnic')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
 
@@ -147,6 +149,9 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your father's name" name="father_name" type="text"
                                             id="father_name" :value="old('father_name')" required autofocus/>
+                                        @error('father_name')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
 
@@ -157,19 +162,25 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your father's phone" name="father_phone" type="text"
                                             id="father_phone" :value="old('father_phone')" required autofocus/>
+                                        @error('father_phone')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
 
                                     <!-- Phone No. -->
                                     <x-visitor.input-label class="" for="phone" :value="__('Phone')">
 
-                                <span class="text-gray-700 dark:text-gray-400">
-                                    Phone No.
-                                </span>
+                                        <span class="text-gray-700 dark:text-gray-400">
+                                            Phone No.
+                                        </span>
                                         <x-visitor.text-input
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your phone no." name="phone" type="text" id="phone"
-                                            :value="old('phone')" required autofocus/>
+                                            :value="old('phone')" required autofocus />
+                                        @error('phone')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Gender -->
@@ -180,6 +191,9 @@
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
+                                        @error('gender')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Interest -->
@@ -193,6 +207,9 @@
                                             <option value="graphic">Graphic Designing</option>
 
                                         </select>
+                                        @error('interest')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Education -->
@@ -207,16 +224,22 @@
                                             <option value="masters">Masters</option>
 
                                         </select>
+                                        @error('education')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Institute -->
-                                    <x-visitor.input-label class="mt-4" for="institute" :value="__('Institute')">
+                                    <x-visitor.input-label class="" for="institute" :value="__('Institute')">
 
                                         <x-visitor.text-input
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your institute" name="institute" type="text"
                                             id="institute"
                                             :value="old('institute')" required autofocus/>
+                                        @error('institute')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Marital Status -->
@@ -229,41 +252,50 @@
                                             <option value="married">Married</option>
                                             <option value="divorced">Divorced</option>
                                         </select>
+                                        @error('marital_status')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Role -->
-                                    <x-visitor.input-label for="role" :value="__('Role')">
+{{--                                    <x-visitor.input-label for="role" :value="__('Role')">--}}
 
-                                        <select name="role" id="role"
-                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
-                                            <option value="">Select Role</option>
-                                            <option value="{{UserRoles::ADMIN->value}}">Admin</option>
-                                            <option value="{{UserRoles::VISITOR->value}}">Visitor</option>
-                                            <option value="{{UserRoles::STAFF->value}}">Student</option>
-                                            <option value="{{UserRoles::STUDENT->value}}">Staff</option>
-                                        </select>
-                                    </x-visitor.input-label>
+{{--                                        <select name="role" id="role"--}}
+{{--                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">--}}
+{{--                                            <option value="">Select Role</option>--}}
+{{--                                            <option value="{{UserRoles::ADMIN->value}}">Admin</option>--}}
+{{--                                            <option value="{{UserRoles::VISITOR->value}}">Visitor</option>--}}
+{{--                                            <option value="{{UserRoles::STAFF->value}}">Student</option>--}}
+{{--                                            <option value="{{UserRoles::STUDENT->value}}">Staff</option>--}}
+{{--                                        </select>--}}
+{{--                                    </x-visitor.input-label>--}}
                                 </div>
-                                <BR>
+
                                 <!-- Email input -->
-                                <x-visitor.input-label class="mt-4" for="email" :value="__('Email')">
+                                <x-visitor.input-label class="" for="email" :value="__('Email')">
 
                                     <x-visitor.text-input
                                         class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                         placeholder="Enter your email address" type="email" name="email" id="email"
                                         :value="old('email')" required autofocus/>
+                                    @error('email')
+                                    <div class="text-red-500 p-2">{{ $message }}</div>
+                                    @enderror
 
                                 </x-visitor.input-label>
-                                <br>
 
-                                <div class="flex align-center mt-4">
+
+                                <div class="">
                                     <!-- City Name -->
-                                    <x-visitor.input-label class="mr-4" for="city" :value="__('City')">
+                                    <x-visitor.input-label class="" for="city" :value="__('City')">
 
                                         <x-visitor.text-input
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your city" name="city" id="city" :value="old('city')"
                                             required autofocus/>
+                                        @error('city')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
 
                                     </x-visitor.input-label>
 
@@ -302,7 +334,7 @@
                             <th class="px-4 py-3">Education</th>
                             <th class="px-4 py-3">Institute</th>
                             <th class="px-4 py-3">Marital Status</th>
-                            <th class="px-4 py-3">Role</th>
+{{--                            <th class="px-4 py-3">Role</th>--}}
                             <th class="px-4 py-3">Actions</th>
 
 
@@ -329,7 +361,7 @@
                                             {{--                                            </p>--}}
                                             <p class="font-semibold">{{$visitor->name}}</p>
                                             <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                @if($visitor->role ==2)
+                                                @if($visitor->role == 'visitor')
                                                     Visitor
                                                 @endif
                                             </p>
@@ -366,17 +398,17 @@
                                 <td class="px-4 py-3 text-sm">
                                     {{$visitor->marital_status}}
                                 </td>
-                                <td class="px-4 py-3 text-sm">
-                                    <select
-                                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                        name="role" id="role"
-                                    >
-                                        <option value="" disabled>Select Roles</option>
-                                        {{-- @foreach($roles as $role)
-                                            <option value="{{$role->value}}" {{($visitor->role == $role->value) ? 'selected' : '' }}>{{$role->name}}</option>
-                                        @endforeach --}}
-                                    </select>
-                                </td>
+{{--                                <td class="px-4 py-3 text-sm">--}}
+{{--                                    <select--}}
+{{--                                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"--}}
+{{--                                        name="role" id="role"--}}
+{{--                                    >--}}
+{{--                                        <option value="" disabled>Select Roles</option>--}}
+{{--                                        --}}{{-- @foreach($roles as $role)--}}
+{{--                                            <option value="{{$role->value}}" {{($visitor->role == $role->value) ? 'selected' : '' }}>{{$role->name}}</option>--}}
+{{--                                        @endforeach --}}
+{{--                                    </select>--}}
+{{--                                </td>--}}
 
                                 <td class="px-4 py-3 text-sm">
                                     <a
@@ -395,22 +427,6 @@
                                         <span class="ml-4 text-red-700">Delete</span>
                                     </a>
                                 </td>
-                                {{--                                <td class="px-4 py-3 text-xs">--}}
-                                {{--                                    <span--}}
-                                {{--                                        class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">--}}
-                                {{--                                        Approved--}}
-                                {{--                                        $ 369.95--}}
-                                {{--                                    </span>--}}
-                                {{--                                </td>--}}
-                                {{--                                <td class="px-4 py-3 text-xs">--}}
-                                {{--                                    <span--}}
-                                {{--                                        class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">--}}
-                                {{--                                        Pending--}}
-                                {{--                                    </span>--}}
-                                {{--                                </td>--}}
-                                {{--                                <td class="px-4 py-3 text-sm">--}}
-                                {{--                                    6/10/2020--}}
-                                {{--                                </td>--}}
                             </tr>
 
                         @endforeach
@@ -424,68 +440,69 @@
                     </span>
                     <span class="col-span-2"></span>
                     <!-- Pagination -->
-                    <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                        <nav aria-label="Table navigation">
-                            <ul class="inline-flex items-center">
-                                <li>
-                                    <button
-                                        class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
-                                        aria-label="Previous">
-                                        <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                                            <path
-                                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                clip-rule="evenodd" fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        1
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        2
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        3
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        4
-                                    </button>
-                                </li>
-                                <li>
-                                    <span class="px-3 py-1">...</span>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        8
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
-                                        9
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
-                                        aria-label="Next">
-                                        <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
-                                            <path
-                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                clip-rule="evenodd" fill-rule="evenodd"></path>
-                                        </svg>
-                                    </button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </span>
+{{--                    <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">--}}
+{{--                        <nav aria-label="Table navigation">--}}
+{{--                            <ul class="inline-flex items-center">--}}
+{{--                                <li>--}}
+{{--                                    <button--}}
+{{--                                        class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"--}}
+{{--                                        aria-label="Previous">--}}
+{{--                                        <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">--}}
+{{--                                            <path--}}
+{{--                                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"--}}
+{{--                                                clip-rule="evenodd" fill-rule="evenodd"></path>--}}
+{{--                                        </svg>--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        1--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        2--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button--}}
+{{--                                        class="px-3 py-1 text-white transition-colors duration-150 bg-purple-600 border border-r-0 border-purple-600 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        3--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        4--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <span class="px-3 py-1">...</span>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        8--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">--}}
+{{--                                        9--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <button--}}
+{{--                                        class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"--}}
+{{--                                        aria-label="Next">--}}
+{{--                                        <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">--}}
+{{--                                            <path--}}
+{{--                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"--}}
+{{--                                                clip-rule="evenodd" fill-rule="evenodd"></path>--}}
+{{--                                        </svg>--}}
+{{--                                    </button>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </nav>--}}
+{{--                    </span>--}}
+
                 </div>
             </div>
 

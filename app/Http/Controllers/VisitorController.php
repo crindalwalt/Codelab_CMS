@@ -16,7 +16,7 @@ class VisitorController extends Controller
     public function index()
     {
 
-        $visitors = User::where('role','visitor')->get();
+        $visitors = User::where('role','visitor')->latest()->get();
         return view('admin.visitor.index')->with('visitors',$visitors);
 
     }
@@ -40,7 +40,7 @@ class VisitorController extends Controller
     public function store(StoreVisitorRequest $request)
     {
 
-    //dd($request->all());
+//    dd($request->all());
         $validated = $request->validate([
             'name'=>'required|string',
             'phone'=>'required|string',
@@ -55,7 +55,7 @@ class VisitorController extends Controller
             'education'=>'required'
 
         ]);
-//        return "form is validated";
+        return "form is validated";
         $submitData = new User();
         $submitData->name = $request->name;
         $submitData->phone = $request->phone;
@@ -73,7 +73,7 @@ class VisitorController extends Controller
         $submitData->role = 3;
         $submitData->education = $request->education;
         $submitData->save();
-        return redirect('/dashboard/visitor');
+        return redirect('/dashboard/visitor?ho=gya');
 
 
     }
