@@ -17,7 +17,7 @@ class VisitorController extends Controller
     {
         $visitors = User::where('role','visitor')->latest()->get();
 
-        return view('admin.user.index')->with('visitors',$visitors);
+        return view('admin.visitor.index')->with('visitors',$visitors);
 
     }
 
