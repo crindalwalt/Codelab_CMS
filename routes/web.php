@@ -19,16 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('templete.index');
 });
-Route::prefix('dashboard')->middleware('auth')->group(function(){
-    Route::get('/dashboard/visitor/destroy/{visitor}',[VisitorController::class,'delete']);
-    Route::resource('visitor',VisitorController::class)->except(['destroy']);
-    Route::resource('student',StudentController::class);
-    Route::resource('dues',DueController::class);
-
-});
-
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

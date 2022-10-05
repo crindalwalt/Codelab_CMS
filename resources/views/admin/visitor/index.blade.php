@@ -112,7 +112,6 @@
                         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
                             <form action="{{ route('visitor.store') }}" method="POST">
                                 @csrf
-
                                 <div class="flex align-center flex-wrap  p-4">
 
                                     <!-- Full Name -->
