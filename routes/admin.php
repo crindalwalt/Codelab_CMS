@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('/dashboard', [AdminController::class,'index'])->name('dashboard');
     Route::resource('user', UserController::class);
-    Route::resource('visitor', UserController::class);
+    Route::resource('visitor', VisitorController::class);
     Route::resource('student',StudentController::class);
     Route::resource('dues',DueController::class);
 
