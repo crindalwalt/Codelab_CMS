@@ -412,7 +412,7 @@
                                 <td class="px-4 py-3 text-sm">
                                     <a
                                         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                                        href="forms.html"
+                                        href="{{route('user.edit',$visitor->id)}}"
                                     >
                                         <span class="ml-4 text-purple-600">Update</span>
                                     </a>
@@ -421,7 +421,7 @@
 
                                     <a
                                         class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                                        href="forms.html"
+                                        href="{{route('user.destroy',$visitor->id)}}"
                                     >
                                         <span class="ml-4 text-red-700">Delete</span>
                                     </a>
