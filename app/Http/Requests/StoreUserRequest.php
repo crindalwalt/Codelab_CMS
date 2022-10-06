@@ -32,7 +32,7 @@ class StoreUserRequest extends FormRequest
             'cnic'=>'digits:13',
             'gender'=>'required',
             'email'=>'required|email',
-            'institude'=>'required',
+            'institute'=>'required',
             'city'=>'required',
             'education'=>'required',
             'role' => 'required'
@@ -49,7 +49,7 @@ class StoreUserRequest extends FormRequest
             'cnic.required'=>'CNIC is required',
             'gender.required'=>'Gender is required',
             'email.required'=>'Email is required',
-            'institude.required'=>'Institute is required',
+            'institute.required'=>'Institute is required',
             'city.required'=>'City is required',
             'education.required'=>'Education is required',
             'role.required' => 'Role is required',

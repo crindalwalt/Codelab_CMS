@@ -1,6 +1,6 @@
-{{-- @php--}}
-{{--      extract($data);--}}
-{{-- @endphp--}}
+ @php
+      extract($visitors);
+ @endphp
 @php use App\Enum\UserRoles; @endphp
 @extends('layouts.admin')
 @section('content')
@@ -107,7 +107,8 @@
                 <div class="container px-6 mx-auto grid">
 
                     <div class="">
-
+                        <!-- Validation Errors -->
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
                         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
                             <form action="{{ route('user.store') }}" method="POST">
@@ -121,9 +122,9 @@
                                             placeholder="Enter your name" name="name" type="text" id="name"
                                             :value="old('name')"
                                             required autofocus/>
-                                        @error('name')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('name')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- CNIC -->
@@ -135,9 +136,9 @@
                                             placeholder="Enter your cnic" name="cnic" type="text" id="cnic"
                                             :value="old('cnic')"
                                             required autofocus/>
-                                        @error('cnic')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('cnic')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
 
@@ -148,9 +149,9 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your father's name" name="father_name" type="text"
                                             id="father_name" :value="old('father_name')" required autofocus/>
-                                        @error('father_name')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('father_name')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
 
@@ -161,9 +162,9 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your father's phone" name="father_phone" type="text"
                                             id="father_phone" :value="old('father_phone')" required autofocus/>
-                                        @error('father_phone')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('father_phone')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
 
@@ -177,9 +178,9 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your phone no." name="phone" type="text" id="phone"
                                             :value="old('phone')" required autofocus />
-                                        @error('phone')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('phone')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Gender -->
@@ -190,9 +191,9 @@
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                         </select>
-                                        @error('gender')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('gender')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Interest -->
@@ -206,9 +207,9 @@
                                             <option value="graphic">Graphic Designing</option>
 
                                         </select>
-                                        @error('interest')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('interest')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Education -->
@@ -223,9 +224,9 @@
                                             <option value="masters">Masters</option>
 
                                         </select>
-                                        @error('education')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('education')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Institute -->
@@ -236,9 +237,9 @@
                                             placeholder="Enter your institute" name="institute" type="text"
                                             id="institute"
                                             :value="old('institute')" required autofocus/>
-                                        @error('institute')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('institute')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Marital Status -->
@@ -251,23 +252,23 @@
                                             <option value="married">Married</option>
                                             <option value="divorced">Divorced</option>
                                         </select>
-                                        @error('marital_status')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('marital_status')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
                                     </x-visitor.input-label>
                                     <br>
                                     <!-- Role -->
-{{--                                    <x-visitor.input-label for="role" :value="__('Role')">--}}
+                                    <x-visitor.input-label for="role" :value="__('Role')">
 
-{{--                                        <select name="role" id="role"--}}
-{{--                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">--}}
-{{--                                            <option value="">Select Role</option>--}}
-{{--                                            <option value="{{UserRoles::ADMIN->value}}">Admin</option>--}}
-{{--                                            <option value="{{UserRoles::VISITOR->value}}">Visitor</option>--}}
-{{--                                            <option value="{{UserRoles::STAFF->value}}">Student</option>--}}
-{{--                                            <option value="{{UserRoles::STUDENT->value}}">Staff</option>--}}
-{{--                                        </select>--}}
-{{--                                    </x-visitor.input-label>--}}
+                                        <select name="role" id="role"
+                                                class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Role</option>
+                                            <option value="{{UserRoles::ADMIN->value}}">Admin</option>
+                                            <option value="{{UserRoles::VISITOR->value}}">Visitor</option>
+                                            <option value="{{UserRoles::STAFF->value}}">Student</option>
+                                            <option value="{{UserRoles::STUDENT->value}}">Staff</option>
+                                        </select>
+                                    </x-visitor.input-label>
                                 </div>
 
                                 <!-- Email input -->
@@ -277,12 +278,23 @@
                                         class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                         placeholder="Enter your email address" type="email" name="email" id="email"
                                         :value="old('email')" required autofocus/>
-                                    @error('email')
-                                    <div class="text-red-500 p-2">{{ $message }}</div>
-                                    @enderror
+                                    {{--                                    @error('email')--}}
+                                    {{--                                    <div class="text-red-500 p-2">{{ $message }}</div>--}}
+                                    {{--                                    @enderror--}}
 
                                 </x-visitor.input-label>
+                                <!-- Password -->
+                                <x-visitor.input-label class="" for="password" :value="__('password')">
 
+                                    <x-visitor.text-input
+                                        class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                        placeholder="Enter your email address" type="password" name="password" id="password"
+                                        :value="old('password')" required autofocus/>
+                                    {{--                                    @error('password')--}}
+                                    {{--                                    <div class="text-red-500 p-2">{{ $message }}</div>--}}
+                                    {{--                                    @enderror--}}
+
+                                </x-visitor.input-label>
 
                                 <div class="">
                                     <!-- City Name -->
@@ -292,9 +304,9 @@
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                             placeholder="Enter your city" name="city" id="city" :value="old('city')"
                                             required autofocus/>
-                                        @error('city')
-                                        <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
+{{--                                        @error('city')--}}
+{{--                                        <div class="text-red-500 p-2">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
 
                                     </x-visitor.input-label>
 
