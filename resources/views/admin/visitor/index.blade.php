@@ -1,5 +1,5 @@
  @php
-      extract($visitors);
+      extract($data);
  @endphp
 @php use App\Enum\UserRoles; @endphp
 @extends('layouts.admin')
