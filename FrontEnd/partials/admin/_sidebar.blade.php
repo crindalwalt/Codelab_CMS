@@ -1,13 +1,13 @@
 <!-- Desktop sidebar -->
 <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
     <div class="py-4 text-gray-500 dark:text-gray-400">
-        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="/dashboard">
+        <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="/admin/dashboard">
             CodeLab CMS
         </a>
         <ul class="mt-6">
             <li class="relative px-6 py-3">
                 {{-- Approach 1 --}}
-                {{-- <span class="{{ 
+                {{-- <span class="{{
                    route('dashboard') ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : ''
                     }}
                     "
@@ -24,7 +24,7 @@
                     }
                 @endphp --}}
                 <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                    href="{{ route('dashboard') }}">
+                    href="/admin/dashboard">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -37,7 +37,7 @@
         </ul>
         <ul>
             <li class="relative px-6 py-3">
-                {{-- <span class="{{ 
+                {{-- <span class="{{
                     route('dashboard') ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : ''
                      }}
                      "
@@ -80,7 +80,7 @@
 
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="buttons.html">
+                    href="ThemeCompenents/buttons.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -94,7 +94,7 @@
 
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="modals.html">
+                    href="ThemeCompenents/modals.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -106,7 +106,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="tables.html">
+                    href="ThemeCompenents/tables.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
@@ -213,7 +213,7 @@
         <ul>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="forms.html">
+                    href="ThemeCompenents/forms.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -225,7 +225,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="cards.html">
+                    href="ThemeCompenents/cards.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -237,7 +237,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="charts.html">
+                    href="ThemeCompenents/charts.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
@@ -248,7 +248,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="buttons.html">
+                    href="ThemeCompenents/buttons.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -260,7 +260,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="modals.html">
+                    href="ThemeCompenents/modals.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path
@@ -272,7 +272,7 @@
             </li>
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="tables.html">
+                    href="ThemeCompenents/tables.html">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                         <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>

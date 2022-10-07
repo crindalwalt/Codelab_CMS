@@ -23,7 +23,7 @@
 
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap" class="relative">
-      <!-- Navbar Start -->      
+      <!-- Navbar Start -->
       <div class="navigation fixed top-0 left-0 w-full z-30 duration-300">
           <div class="container">
               <nav class="navbar py-2 navbar-expand-lg flex justify-between items-center relative duration-300">
@@ -62,7 +62,7 @@
                       </ul>
                   </div>
                   <div class="header-btn hidden sm:block sm:absolute sm:right-0 sm:mr-16 lg:static lg:mr-0">
-                    <a class="text-blue-600 border border-blue-600 px-10 py-3 rounded-full duration-300 hover:bg-blue-600 hover:text-white" href="/dashboard">Admin</a>
+                    <a class="text-blue-600 border border-blue-600 px-10 py-3 rounded-full duration-300 hover:bg-blue-600 hover:text-white" href="{{route('dashboard')}}">Admin</a>
                   </div>
               </nav>
           </div>
@@ -190,7 +190,7 @@
           <div class="w-full lg:w-1/2">
             <div class="mb-5 lg:mb-0">
               <h2 class="mb-12 section-heading wow fadeInDown" data-wow-delay="0.3s">Learn More About Us</h2>
-              
+
               <div class="flex flex-wrap">
                 <div class="w-full sm:w-1/2 lg:w-1/2">
                   <div class="m-3">
@@ -444,15 +444,15 @@
                 </div>
               </div>
               <!-- testimonial item end -->
-              
+
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Testimonial Section End -->  
+    <!-- Testimonial Section End -->
 
-    <!-- Pricing section Start --> 
+    <!-- Pricing section Start -->
     <section id="pricing" class="py-24">
       <div class="container">
         <div class="flex flex-wrap justify-center md:justify-start">
@@ -578,13 +578,13 @@
     <!-- Subscribe Section End -->
 
     <!-- Contact Section Start -->
-    <section id="contact" class="py-24">    
+    <section id="contact" class="py-24">
       <div class="container">
         <div class="text-center">
           <h2 class="mb-12 text-4xl text-gray-700 font-bold tracking-wide wow fadeInDown" data-wow-delay="0.3s">Contact</h2>
         </div>
 
-        <div class="flex flex-wrap contact-form-area wow fadeInUp" data-wow-delay="0.4s">          
+        <div class="flex flex-wrap contact-form-area wow fadeInUp" data-wow-delay="0.4s">
           <div class="w-full md:w-1/2">
             <div class="contact">
               <h2 class="uppercase font-bold text-xl text-gray-700 mb-5 ml-3">Contact Form</h2>
@@ -593,12 +593,12 @@
                   <div class="w-full sm:w-1/2 md:w-full lg:w-1/2">
                     <div class="mx-3">
                       <input type="text" class="form-input rounded-full" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
-                    </div>                                 
+                    </div>
                   </div>
                   <div class="w-full sm:w-1/2 md:w-full lg:w-1/2">
                     <div class="mx-3">
                       <input type="text" placeholder="Email" id="email" class="form-input rounded-full" name="email" required data-error="Please enter your email">
-                    </div> 
+                    </div>
                   </div>
                   <div class="w-full">
                     <div class="mx-3">
@@ -606,7 +606,7 @@
                     </div>
                   </div>
                   <div class="w-full">
-                    <div class="mx-3"> 
+                    <div class="mx-3">
                       <textarea class="form-input rounded-lg" id="message" name="message" placeholder="Your Message" rows="5" data-error="Write your message" required></textarea>
                     </div>
                   </div>
@@ -615,7 +615,7 @@
                       <button class="btn" id="form-submit" type="submit">Send Message</button>
                     </div>
                   </div>
-                </div>            
+                </div>
               </form>
             </div>
           </div>
@@ -651,10 +651,10 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
     <!-- Contact Section End -->
-  
+
     <!-- Map Section Start -->
     <section id="google-map-area">
         <div class="mx-6 mb-6">
@@ -703,7 +703,7 @@
           <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 wow fadeInUp" data-wow-delay="0.8s">
             <div class="mx-3 mb-8">
               <h3 class="font-bold text-xl text-white mb-5">Find us on</h3>
-        
+
               <ul class="social-icons flex justify-start">
                 <li class="mx-2">
                   <a href="#"
@@ -733,8 +733,8 @@
             </div>
           </div>
         </div>
-      </div>     
-    </footer> 
+      </div>
+    </footer>
     <!-- Footer Section End -->
 
     <section class="bg-gray-800 py-6 border-t-2 border-gray-700 border-dotted">
@@ -745,19 +745,19 @@
           </div>
         </div>
       </div>
-    </section>   
+    </section>
 
     <!-- Go to Top Link -->
     <a href="#" class="back-to-top w-10 h-10 fixed bottom-0 right-0 mb-5 mr-5 flex items-center justify-center rounded-full bg-blue-600 text-white text-lg z-20 duration-300 hover:bg-blue-400">
       <i class="lni lni-arrow-up"></i>
     </a>
-    
+
     <!-- Preloader -->
    <div id="preloader">
       <div class="loader" id="loader-1"></div>
     </div>
     <!-- End Preloader -->
-    
+
     <!-- All js Here -->
     <script src="{{ asset('templete_assets/js/wow.js') }}"></script>
     <script src="{{ asset('templete_assets/js/tiny-slider.js') }}"></script>

@@ -6,6 +6,8 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
 use App\Models\Visitor;
+use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -21,18 +23,21 @@ class UserController extends Controller
     public function create()
     {
         return view('admin.visitor.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\User\StoreUserRequest  $request
+
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
     {
         User::create($request->all());
         return view('admin.index')->with('message','New user had been added.');
+
     }
 
     /**
@@ -42,6 +47,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
+
     {
         //
     }
@@ -68,6 +74,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
+
      * @param  \App\Http\Requests\User\UpdateUserRequest  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
@@ -89,6 +96,7 @@ class UserController extends Controller
         $user->email = $request->email;;
         $user->password = $request->password;
         $user->save();
+
         return redirect()->route('visitor.index')->with('success','Information has been updated.');
 
     }
@@ -102,6 +110,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
 
     }
 }

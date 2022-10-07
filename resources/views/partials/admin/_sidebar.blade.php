@@ -7,7 +7,7 @@
         <ul class="mt-6">
             <li class="relative px-6 py-3">
                 {{-- Approach 1 --}}
-                {{-- <span class="{{ 
+                {{-- <span class="{{
                    route('dashboard') ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : ''
                     }}
                     "
@@ -37,9 +37,6 @@
         </ul>
         <ul>
             <li class="relative px-6 py-3">
-<<<<<<< Updated upstream
-                {{-- <span class="{{ 
-=======
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                    href="{{route('user.create')}}">
                     <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -53,7 +50,6 @@
             </li>
             <li class="relative px-6 py-3">
                 {{-- <span class="{{
->>>>>>> Stashed changes
                     route('dashboard') ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : ''
                      }}
                      "

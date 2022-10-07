@@ -48,7 +48,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | User Providers
+    | UserController Providers
     |--------------------------------------------------------------------------
     |
     | All authentication drivers have a user provider. This defines how the
@@ -68,7 +68,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
