@@ -1,7 +1,7 @@
-{{-- @php --}}
-{{-- // extract($data); --}}
-{{-- @endphp --}}
-@php use App\Enum\UserRoles; @endphp
+@php
+    extract($data);
+@endphp
+@php use App\Enum\Education;use App\Enum\Gender;use App\Enum\Interest;use App\Enum\MaritalStatus;use App\Enum\UserRoles; @endphp
 @extends('layouts.admin')
 @section('content')
     <main class="h-full overflow-y-auto">
@@ -16,8 +16,9 @@
                 </h4>
 
                 <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-                    <form action="" method="POST">
-
+                    <form action="{{route('user.update',$user)}}" method="POST">
+                        @method('put')
+                        @csrf
                         <div class="align-center">
                             <!-- Full Name -->
                             <x-visitor.input-label class="mr-4" for="name" :value="__('Name')">
@@ -26,7 +27,7 @@
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your name" name="name" type="text" id="name"
-                                    :value="old('name')"
+                                    value="{{ $user->name }}"
                                     required autofocus/>
                             </x-visitor.input-label>
                             <!-- CNIC -->
@@ -35,7 +36,7 @@
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your cnic" name="cnic" type="text" id="cnic"
-                                    :value="old('cnic')"
+                                    value="{{ $user->cnic }}"
                                     required autofocus/>
                             </x-visitor.input-label>
                             <!-- Father Name -->
@@ -44,7 +45,7 @@
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your father's name" name="father_name" type="text"
-                                    id="father_name" :value="old('father_name')" required autofocus/>
+                                    id="father_name" value="{{ $user->father_name }}" required autofocus/>
                             </x-visitor.input-label>
 
                             <!-- Father Name -->
@@ -53,7 +54,7 @@
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your father's phone" name="father_phone" type="text"
-                                    id="father_phone" :value="old('father_phone')" required autofocus/>
+                                    id="father_phone" value="{{ $user->father_phone }}" required autofocus/>
                             </x-visitor.input-label>
 
                             <!-- Phone No. -->
@@ -65,7 +66,7 @@
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your phone no." name="phone" type="text" id="phone"
-                                    :value="old('phone')" required autofocus/>
+                                    value="{{ $user->phone }}" required autofocus/>
                             </x-visitor.input-label>
                             <!-- Gender -->
                             <x-visitor.input-label for="gender" :value="__('Gender')">
@@ -73,8 +74,10 @@
                                 <select name="gender" id="gender"
                                         class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                     <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                    @foreach(Gender::cases() as $item)
+                                        <option
+                                            value="{{$item->value}}" {{($item->value == $user->gender)? 'selected' : ''}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </x-visitor.input-label>
                             <!-- Interest -->
@@ -83,9 +86,10 @@
                                 <select name="interest" id="interest"
                                         class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                     <option value="">Select Interest</option>
-                                    <option value="web">Web Development</option>
-                                    <option value="android">Android Development</option>
-                                    <option value="graphic">Graphic Designing</option>
+                                    @foreach(Interest::cases() as $item)
+                                        <option
+                                            value="{{$item->value}}" {{($item->value == $user->interest)? 'selected' : ''}}>{{$item->value}}</option>
+                                    @endforeach
 
                                 </select>
                             </x-visitor.input-label>
@@ -95,10 +99,10 @@
                                 <select name="education" id="education"
                                         class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                     <option value="">Select Education</option>
-                                    <option value="matric">Matriculation</option>
-                                    <option value="inter">Intermediate</option>
-                                    <option value="graduate">Graduation</option>
-                                    <option value="masters">Masters</option>
+                                    @foreach(Education::cases() as $item)
+                                        <option
+                                            value="{{$item->value}}" {{($item->value == $user->education)? 'selected' : ''}}>{{$item->value}}</option>
+                                    @endforeach
 
                                 </select>
                             </x-visitor.input-label>
@@ -109,7 +113,7 @@
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your institute" name="institute" type="text"
                                     id="institute"
-                                    :value="old('institute')" required autofocus/>
+                                    value="{{ $user->institute }}" required autofocus/>
                             </x-visitor.input-label>
                             <!-- Marital Status -->
                             <x-visitor.input-label for="marital_status" :value="__('Marital Status')">
@@ -117,9 +121,10 @@
                                 <select name="marital_status" id="marital_status"
                                         class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                     <option value="">Select Marital Status</option>
-                                    <option value="single">Single</option>
-                                    <option value="married">Married</option>
-                                    <option value="divorced">Divorced</option>
+                                    @foreach(MaritalStatus::cases() as $item)
+                                        <option
+                                            value="{{$item->value}}" {{($item->value == $user->marital_status)? 'selected' : ''}}>{{$item->value}}</option>
+                                    @endforeach
                                 </select>
                             </x-visitor.input-label>
                             <!-- Role -->
@@ -128,30 +133,37 @@
                                 <select name="role" id="role"
                                         class=" block w-full mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                     <option value="">Select Role</option>
-                                    <option value="{{UserRoles::ADMIN->value}}">Admin</option>
-                                    <option value="{{UserRoles::VISITOR->value}}">Visitor</option>
-                                    <option value="{{UserRoles::STAFF->value}}">Student</option>
-                                    <option value="{{UserRoles::STUDENT->value}}">Staff</option>
+                                    @foreach(UserRoles::cases() as $item)
+                                        <option value="{{$item->value}}" {{($item->value == $user->role)? 'selected' : ''}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </x-visitor.input-label>
                         </div>
                         <!-- Email input -->
+
                         <x-visitor.input-label class="mt-4" for="email" :value="__('Email')">
 
                             <x-visitor.text-input
                                 class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                 placeholder="Enter your email address" type="email" name="email" id="email"
-                                :value="old('email')" required autofocus/>
+                                value="{{ $user->email }}" required autofocus/>
 
                         </x-visitor.input-label>
+                        <x-visitor.input-label class="mt-4" for="password" :value="__('Password')">
 
+                            <x-visitor.text-input
+                                class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                placeholder="Enter your Password" type="password" name="password" id="password"
+                                value="{{ $user->password }}" required autofocus/>
+
+                        </x-visitor.input-label>
                         <div class="flex align-center mt-4">
                             <!-- City Name -->
                             <x-visitor.input-label class="mr-4" for="city" :value="__('City')">
 
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
-                                    placeholder="Enter your city" name="city" id="city" :value="old('city')"
+                                    placeholder="Enter your city" name="city" id="city" value="{{ $user->city }}"
                                     required autofocus/>
 
                             </x-visitor.input-label>

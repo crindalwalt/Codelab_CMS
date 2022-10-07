@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Enum\Education;
+use App\Enum\Gender;
+use App\Enum\Interest;
+use App\Enum\MaritalStatus;
 use App\Enum\UserRoles;
 use App\Models\User;
 
@@ -25,16 +29,19 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'father_name'=> $this->faker->name() ,
             'father_phone'=> $this->faker->phoneNumber() ,
-            'cnic'=> 'xxxxx-xxxxxxxx-x',
+            'cnic'=> $this->faker->numerify('1234567891234'),
             'phone'=> $this->faker->phoneNumber() ,
-            'gender'=> 'male' ,
-            'interest'=>"Web Development",
-            'education'=> 'matric pass',
+            'gender'=> Gender::MALE,
+            'interest'=> Interest::WEBDSIGN,
+            'education'=> Education::GRAD,
             'institute'=> 'Islamia University',
-            'marital_status'=> "hoping...",
-
+            'marital_status'=> MaritalStatus::SINGLE,
             'city' => $this->faker->city,
             'role'=>UserRoles::VISITOR,
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             'email_verified_at' => now(),
 
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
