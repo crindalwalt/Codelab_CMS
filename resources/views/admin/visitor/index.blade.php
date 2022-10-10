@@ -175,12 +175,13 @@
                                     <br>
                                     <br>
 
-                                    <a
-                                        class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                                        href="{{route('user.destroy',$visitor->id)}}"
+                                    <button
+
+                                        class="inline-flex items-center delete w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+
                                     >
                                         <span class="ml-4 text-red-700">Delete</span>
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
 
