@@ -15,9 +15,8 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        $visitors = User::where('role','visitor')->latest()->get();
-
-        return view('admin.visitor.index')->with('visitors',$visitors);
+        $data['visitors'] = User::where('role','visitor')->latest()->get();
+        return view('admin.visitor.index')->with('data',$data);
 
     }
 

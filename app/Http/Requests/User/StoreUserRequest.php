@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -50,7 +50,7 @@ class StoreUserRequest extends FormRequest
             'gender.required'=>'Gender is required',
             'email.required'=>'Email is required',
             'institute.required'=>'Institute is required',
-           'city.required'=>'City is required',
+            'city.required'=>'City is required',
             'education.required'=>'Education is required',
             'role.required' => 'Role is required',
         ];
