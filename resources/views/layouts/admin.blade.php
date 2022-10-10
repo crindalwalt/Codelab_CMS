@@ -26,6 +26,8 @@
     <script src="{{  asset('assets/js/charts-lines.js') }}" defer></script>
     <script src="{{  asset('assets/js/charts-pie.js') }}" defer></script>
       <script src="sweetalert2.all.min.js"></script>
+      <script src="{{  asset('assets/js/custom.js') }}"></script>
+
   </head>
 
 
