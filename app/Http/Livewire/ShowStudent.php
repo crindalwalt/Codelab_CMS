@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class ShowStudent extends Component
 {
-    public $stdsearch;
+    public $stdsearch ;
     public $users;
     public function render()
     {
