@@ -133,7 +133,7 @@
 
 {{--                                    </x-visitor.input-label>--}}
 
-                                    @livewire('show-student')
+                                    @livewire('show-student',[])
 
 
                                 </div>

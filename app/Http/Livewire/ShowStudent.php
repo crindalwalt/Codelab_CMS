@@ -12,7 +12,7 @@ class ShowStudent extends Component
     public function render()
     {
         $stdsearch = '%' . $this->stdsearch  . '%';
-        $this->users = User::where('name','like',$stdsearch)->get();
+        $this->users = User::where('name','like',$stdsearch)->latest()->get();
         return view('livewire.show-student');
     }
 }
