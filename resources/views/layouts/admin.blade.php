@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
   <head>
+      @livewireStyles
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -206,7 +207,7 @@
         </div>
 
     </div>
-
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @livewireScripts
   </body>
 </html>

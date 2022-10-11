@@ -120,18 +120,8 @@
 
 
                                 <div class="">
-                                    <!-- Visitor available -->
-                                    <x-visitor.input-label class="" for="visitor" :value="__('visitor')">
 
-                                        <x-visitor.text-input
-                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
-                                            placeholder="Enter your city" name="visitor" id="visitor" :value="old('visitor')"
-                                            required autofocus/>
-                                        @error('visitor')
-                                            <div class="text-red-500 p-2">{{ $message }}</div>
-                                        @enderror
-
-                                    </x-visitor.input-label>
+                                    @livewire('show-student')
 
 
                                 </div>
