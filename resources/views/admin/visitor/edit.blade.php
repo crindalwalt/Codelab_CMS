@@ -22,8 +22,6 @@
                         <div class="align-center">
                             <!-- Full Name -->
                             <x-visitor.input-label class="mr-4" for="name" :value="__('Name')">
-
-
                                 <x-visitor.text-input
                                     class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
                                     placeholder="Enter your name" name="name" type="text" id="name"

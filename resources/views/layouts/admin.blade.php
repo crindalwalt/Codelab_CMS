@@ -4,6 +4,7 @@
       @livewireStyles
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CMS | CodeLab</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -15,20 +16,18 @@
       defer
     ></script>
     <script src="{{  asset('assets/js/init-alpine.js') }}"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    />
-      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{{--    <link--}}
+{{--      rel="stylesheet"--}}
+{{--      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"--}}
+{{--    />--}}
+{{--    <script--}}
+{{--      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"--}}
+{{--      defer--}}
+{{--    ></script>--}}
 
-      <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      defer
-    ></script>
-    <script src="{{  asset('assets/js/charts-lines.js') }}" defer></script>
-    <script src="{{  asset('assets/js/charts-pie.js') }}" defer></script>
-      <script src="sweetalert2.all.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
       <script src="{{  asset('assets/js/custom.js') }}"></script>
+{{--    <script src="{{  asset('assets/js/charts-pie.js') }}" defer></script>--}}
 
   </head>
 
@@ -208,8 +207,7 @@
         </div>
 
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
   </body>
 </html>
