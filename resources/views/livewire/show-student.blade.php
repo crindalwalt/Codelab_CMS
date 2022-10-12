@@ -4,11 +4,12 @@
 {{--        @error('visitor')--}}
 {{--        <div class="text-red-500 p-2">{{ $message }}</div>--}}
 {{--        @enderror--}}
+{{--    @foreach($users as $user) <li class="py-2"> <strong>{{$user->name}}</strong></li>@endforeach--}}
 
         <ul>
             <label for="stdSelect" class="py-4 text-white">Select visitor</label>
             <div class="flex justify-start w-full">
-                <div class="mb-3 xl:w-96">
+                <div class="mb-3 xl:w-full">
                             <select class="form-select form-select-lg mb-3
                   appearance-none
                   block

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    $('select').select2();
     $(document).on('click','.delete', function () {
         Swal.fire({
             title: 'Are you sure?',
