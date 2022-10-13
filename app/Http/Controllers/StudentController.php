@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batch;
+use App\Models\Course;
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
@@ -15,7 +17,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('admin.student.index');
+        $data['batches'] = Batch::latest()->get();
+        $data['courses'] = Course::latest()->get();
+
+        return view('admin.student.index')->with('data',$data);
     }
 
     /**

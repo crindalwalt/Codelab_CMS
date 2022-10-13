@@ -1,7 +1,4 @@
-{{-- @php--}}
-{{--      extract($data);--}}
-{{-- @endphp--}}
-@php use App\Enum\UserRoles; @endphp
+@php use App\Enum\UserRoles; extract($data) @endphp
 @extends('layouts.admin')
 @section('content')
     <main class="h-full overflow-y-auto">
@@ -40,7 +37,7 @@
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                             {{-- {{ $visitors->count() }} --}}
-                            1212
+                            3
                         </p>
                     </div>
                 </div>
@@ -113,16 +110,57 @@
                         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
                             <form action="{{ route('user.store') }}" method="POST">
                                 @csrf
-                                <div class="">
 
-
-
-
-
-                                <div class="">
 
                                     @livewire('show-student')
+                                <div class="flex flex-wrap">
+                                    {{--            Batch Fiends                        --}}
 
+                                    <x-visitor.input-label for="courses" :value="__('courses')">
+                                        <select name="courses" id="courses"
+                                                class=" block w-1/2 mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Course</option>
+                                            @foreach($courses as $item)
+                                                <option  value="{{$item->id}}" class="text-white hover:text-white">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('courses')
+                                            <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
+                                    </x-visitor.input-label>
+                                    <br>
+
+                                    {{--            Batch Fiends                        --}}
+                                    <x-visitor.input-label for="batch" :value="__('batch')">
+                                        <select name="batch" id="batch"
+                                                class=" block w-1/2 mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
+                                            <option value="">Select Course</option>
+                                            @foreach($batches as $item)
+                                                <option  value="{{$item->id}}" class="text-white hover:text-white">{{$item->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('batch')
+                                        <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
+                                    </x-visitor.input-label>
+                                    <br>
+
+                                    <!-- Dues -->
+                                    <x-visitor.input-label class="" for="dues" :value="__('dues')">
+
+                                        <span class="text-gray-700 dark:text-gray-400">
+                                            Dues
+                                        </span>
+                                        <x-visitor.text-input
+                                            class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
+                                            placeholder="Enter your phone no." name="phone" type="text" id="phone"
+                                            :value="old('dues')" required autofocus/>
+                                        @error('dues')
+                                             <div class="text-red-500 p-2">{{ $message }}</div>
+                                        @enderror
+                                    </x-visitor.input-label>
+                                    <br>
+                                </div>
 
                                 </div>
                                 <div class="py-4">
