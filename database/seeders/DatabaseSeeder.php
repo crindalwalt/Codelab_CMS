@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Enum\UserRoles;
+use App\Models\Batch;
 use App\Models\Course;
 use App\Models\User;
 use App\Models\Visitor;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             CategorySeeder::class,
+            BatchSeeder::class
         ]);
         User::factory(20)->create();
 

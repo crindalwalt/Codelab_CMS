@@ -22,7 +22,8 @@ class BatchSeeder extends Seeder
             'start_date' => '1-oct-2022',
             'end_date' => '30-dec-2022',
             'start_time' => '10:00 am',
-            'end_time' => '12:00 pm'
+            'end_time' => '12:00 pm',
+            'status' => 100
         ]);
         Batch::create([
             'name'=> 'Batch 2',
@@ -31,7 +32,8 @@ class BatchSeeder extends Seeder
             'start_date' => '1-oct-2022',
             'end_date' => '30-dec-2022',
             'start_time' => '1:00 pm',
-            'end_time' => '3:00 pm'
+            'end_time' => '3:00 pm',
+            'status' => 100
         ]);
         Batch::create([
             'name'=> 'Batch 3',
@@ -40,7 +42,8 @@ class BatchSeeder extends Seeder
             'start_date' => '1-jan-2023',
             'end_date' => '30-march-2023',
             'start_time' => '10:00 am',
-            'end_time' => '12:00 pm'
+            'end_time' => '12:00 pm',
+            'status' => 10
         ]);
         Batch::create([
             'name'=> 'Batch 4',
@@ -49,7 +52,8 @@ class BatchSeeder extends Seeder
             'start_date' => '1-jan-2023',
             'end_date' => '30-march-2023',
             'start_time' => '1:00 pm',
-            'end_time' => '3:00 pm'
+            'end_time' => '3:00 pm',
+            'status' => 10
     ]);
     }
 }

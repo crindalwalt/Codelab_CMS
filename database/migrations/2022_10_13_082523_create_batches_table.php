@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('shift');
+            $table->string('status');
             $table->string('start_date');
             $table->string('end_date');
             $table->string('start_time');
