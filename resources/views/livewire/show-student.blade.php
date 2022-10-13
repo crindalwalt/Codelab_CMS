@@ -6,7 +6,7 @@
 {{--        @enderror--}}
 {{--    @foreach($users as $user) <li class="py-2"> <strong>{{$user->name}}</strong></li>@endforeach--}}
 
-        <ul>
+        <ul class="flex flex-col">
 {{--            <label for="stdSelect" class="py-4 text-white">Select visitor</label>--}}
 {{--            <div class="flex justify-start w-full">--}}
 {{--                <div class="mb-3 xl:w-full">--}}
@@ -36,8 +36,9 @@
 
 
 
-                    <select class="js-example-basic-single" name="student[]" multiple="multiple" style="min-width: 200px">
-                        @foreach($users as $user)
+            <label for="stdSelect" class="py-4 text-white">Select visitor</label>
+            <select class="js-example-basic-single" name="student[]" id="stdSelect" multiple="multiple" style="min-width: 200px">
+            @foreach($users as $user)
                         @if($loop->count)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @else
