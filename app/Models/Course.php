@@ -12,4 +12,10 @@ class Course extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+    public function student() {
+        return $this->belongsToMany(User::class);
+    }
+    public function batch() {
+        return $this->hasMany(Batch::class);
+    }
 }
