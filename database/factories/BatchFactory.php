@@ -17,7 +17,7 @@ class BatchFactory extends Factory
     public function definition()
     {
         return [
-            //
+
         ];
     }
 }
