@@ -15,7 +15,12 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="{{  asset('assets/js/init-alpine.js') }}"></script>
+
+      <!-- Select2 CDN -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script defer src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+      <script src="{{  asset('assets/js/init-alpine.js') }}"></script>
 {{--    <link--}}
 {{--      rel="stylesheet"--}}
 {{--      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"--}}
@@ -208,6 +213,11 @@
 
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
     @livewireScripts
   </body>
 </html>
