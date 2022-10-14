@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function student() {
         return $this->belongsToMany(User::class);
     }

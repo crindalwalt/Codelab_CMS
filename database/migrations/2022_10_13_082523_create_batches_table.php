@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+//            $table->unsignedBigInteger('teacher_id');
             $table->string('shift');
             $table->string('status');
             $table->string('start_date');

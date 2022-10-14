@@ -36,14 +36,14 @@
 
 
 
-            <label for="stdSelect" class="py-4 text-white">Select visitor</label>
-            <select class="js-example-basic-single" name="student[]" id="stdSelect" multiple="multiple" style="min-width: 200px">
-            @foreach($users as $user)
-                        @if($loop->count)
-                                <option value="{{$user->id}}">{{$user->name}}</option>
-                            @else
-                                'no record found'
-                            @endif
+            <label for="stdSelect" class="py-4 text-white">Select Student</label>
+            <select class="js-example-basic-single" name="user_id" id="stdSelect" style="min-width: 200px">
+                        @foreach($users as $user)
+                          @if($loop->count)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                              @else
+                                 'no record found'
+                               @endif
                         @endforeach
                     </select>
         </ul>

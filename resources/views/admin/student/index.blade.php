@@ -99,7 +99,7 @@
             </div>
             <div class="">
                 <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-                    Add New Visitor
+                    Student Enrollment
                 </h4>
 
                 <div class="container px-6 mx-auto grid">
@@ -108,52 +108,45 @@
 
 
                         <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800 ">
-                            <form action="{{ route('user.store') }}" method="POST">
+                            <form action="{{ route('student.store') }}" method="POST">
                                 @csrf
-
-
                                     @livewire('show-student')
                                 <div class="flex flex-wrap">
                                     {{--            Batch Fiends                        --}}
-
-                                    <x-visitor.input-label for="courses" :value="__('courses')">
-                                        <select name="courses" id="courses"
+                                    <x-visitor.input-label for="course_id" :value="__('Courses')">
+                                        <select name="course_id" id="course_id"
                                                 class=" block w-1/2 mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                             <option value="">Select Course</option>
                                             @foreach($courses as $item)
                                                 <option  value="{{$item->id}}" class="text-white hover:text-white">{{$item->name}}</option>
                                             @endforeach
                                         </select>
-                                        @error('courses')
+                                        @error('course_id')
                                             <div class="text-red-500 p-2">{{ $message }}</div>
                                         @enderror
                                     </x-visitor.input-label>
                                     <br>
 
                                     {{--            Batch Fiends                        --}}
-                                    <x-visitor.input-label for="batch" :value="__('batch')">
-                                        <select name="batch" id="batch"
+                                    <x-visitor.input-label for="batch_id" :value="__('Batch')">
+                                        <select name="batch_id" id="batch_id"
                                                 class=" block w-1/2 mt-1 text-sm border-blue-600 dark:text-gray-300 dark:bg-gray-700 focus:border-blue-400 focus:outline-none focus:shadow-outline-red form-input">
                                             <option value="">Select Course</option>
                                             @foreach($batches as $item)
                                                 <option  value="{{$item->id}}" class="text-white hover:text-white">{{$item->name}}</option>
                                             @endforeach
                                         </select>
-                                        @error('batch')
+                                        @error('batch_id')
                                         <div class="text-red-500 p-2">{{ $message }}</div>
                                         @enderror
                                     </x-visitor.input-label>
                                     <br>
 
                                     <!-- Dues -->
-                                    <x-visitor.input-label class="" for="dues" :value="__('dues')">
-
-                                        <span class="text-gray-700 dark:text-gray-400">
-                                            Dues
-                                        </span>
+                                    <x-visitor.input-label class="" for="dues" :value="__('Dues')">
                                         <x-visitor.text-input
                                             class="border-blue-600dark:bg-gray-700 focus:border-blue-400 focus:shadow-outline-red form-input"
-                                            placeholder="Enter your phone no." name="phone" type="text" id="phone"
+                                            placeholder="Enter fee" name="dues" type="text" id="dues"
                                             :value="old('dues')" required autofocus/>
                                         @error('dues')
                                              <div class="text-red-500 p-2">{{ $message }}</div>
@@ -166,7 +159,7 @@
                                 <div class="py-4">
                                     <button type="submit"
                                             class="px-5 py-3 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                                        Update
+                                        Enroll
                                     </button>
                                 </div>
                             </form>

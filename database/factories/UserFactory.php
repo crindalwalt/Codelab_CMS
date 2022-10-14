@@ -35,7 +35,6 @@ class UserFactory extends Factory
             'interest'=> Interest::WEBDSIGN,
             'education'=> Education::GRAD,
             'institute'=> 'Islamia University',
-            'marital_status'=> MaritalStatus::SINGLE,
             'city' => $this->faker->city,
             'role'=>UserRoles::VISITOR,
             'email_verified_at' => now(),

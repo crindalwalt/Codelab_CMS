@@ -25,12 +25,9 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             CategorySeeder::class,
             BatchSeeder::class,
-            StudentSeeder::class
-
-
+            StudentSeeder::class,
+            CourseSeeder::class
         ]);
         User::factory(20)->create();
-
-        Course::factory(20)->create();
     }
 }

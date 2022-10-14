@@ -31,7 +31,6 @@ class User extends Authenticatable
         'education',
         'institute',
         'city',
-        'marital_status',
         'role',
 
     ];

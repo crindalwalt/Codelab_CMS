@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\UserRoles;
 use App\Models\Batch;
 use App\Models\Course;
 use App\Models\Student;
@@ -30,7 +31,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.student.index');
     }
 
     /**
@@ -41,7 +42,14 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        $student = new Student();
+        $this->updateRole();
+            $student->user_id = $request->user_id;
+            $student->course_id = $request->course_id;
+            $student->batch_id = $request->batch_id;
+            $student->dues = $request->dues;
+        $student->save();
+        return redirect()->route('student.index')->with('success','Student has been enrolled');
     }
 
     /**
@@ -87,5 +95,9 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
+    }
+    public function updateRole(UpdateStudentRequest $request, Student $student) {
+        $student->role = UserRoles::STUDENT->value;
+        $student->save();
     }
 }

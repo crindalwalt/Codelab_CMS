@@ -31,7 +31,6 @@ class AdminSeeder extends Seeder
             'interest'=> Interest::WEBDSIGN,
             'education'=> Education::GRAD,
             'institute'=> 'Islamia University',
-            'marital_status'=> MaritalStatus::SINGLE,
             'city' => fake()->city,
             'role'=>UserRoles::ADMIN,
             'email_verified_at' => now(),
